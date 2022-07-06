@@ -8,7 +8,7 @@ public class AddModel {
     ProductDataBase dataBase;
     ProductView view;
 
-    public void addProduct() {
-        dataBase.list.add(view.getProduct());
+    public void addProduct(ProductModel product) {
+
     }
 }

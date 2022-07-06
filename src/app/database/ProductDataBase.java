@@ -1,14 +1,16 @@
 package app.database;
 
 import app.models.ProductModel;
+import app.views.ProductView;
 
 import java.util.ArrayList;
 
 public class ProductDataBase {
 
-    public ArrayList<ProductModel> list;
+    static ArrayList<ProductModel> list;
+    ProductView view;
 
-    public void dataBase() {
+    public void database(ProductModel product) {
 
     }
 }
