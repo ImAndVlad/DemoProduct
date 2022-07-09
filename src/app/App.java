@@ -6,6 +6,6 @@ public class App {
 
     public static void main(String[] args) {
         ProductView view = new ProductView();
-        view.getChoice();
+        view.start();
     }
 }

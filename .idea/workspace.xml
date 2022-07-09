@@ -1,18 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a99d046a-05d1-40bd-8b6a-7fb403dbc6ae" name="Changes" comment="Second commit">
-      <change afterPath="$PROJECT_DIR$/src/app/base/Add.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/base/Delete.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/base/Read.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/base/Update.java" afterDir="false" />
+    <list default="true" id="a99d046a-05d1-40bd-8b6a-7fb403dbc6ae" name="Changes" comment="Third commit">
+      <change afterPath="$PROJECT_DIR$/src/app/models/ProductPriceModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/utils/OptionMapValidator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/database/ProductDataBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/database/ProductDataBase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/models/AddModel.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/models/DeleteModel.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/models/ReadModel.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/models/UpdateModel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/base/Add.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/base/Add.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/base/Read.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/base/Read.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/models/ProductModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/models/ProductModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/utils/OptionValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/utils/OptionValidator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/views/ProductView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/views/ProductView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -23,8 +20,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -103,7 +100,14 @@
       <option name="project" value="LOCAL" />
       <updated>1657084797083</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Third commit">
+      <created>1657303117994</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1657303117994</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -120,6 +124,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="First commit" />
     <MESSAGE value="Second commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="Second commit" />
+    <MESSAGE value="Third commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="Third commit" />
   </component>
 </project>

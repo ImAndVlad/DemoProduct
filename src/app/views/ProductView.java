@@ -5,21 +5,38 @@ import app.base.Delete;
 import app.base.Read;
 import app.base.Update;
 import app.models.ProductModel;
+import app.models.ProductPriceModel;
+import app.utils.OptionMapValidator;
 import app.utils.OptionValidator;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Scanner;
 
 public class ProductView implements Add, Delete, Read, Update {
 
     Scanner scanner;
     ProductModel model;
+    ProductPriceModel product;
     ArrayList<ProductModel> list;
+    public HashMap<Double, ProductPriceModel> map;
     int size;
     int index;
+    double price;
+
+    public void options(int choice) {
+        switch (choice) {
+            case 1 -> readProduct();
+            case 2 -> addProduct(getProduct());
+            case 3 -> deleteProduct();
+            case 4 -> updateProduct();
+            case 5 -> optionsMap(getOptionMap());
+            case 0 -> System.exit(0);
+        }
+    }
 
     public int getOption() {
-        scanner = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
         System.out.print("""
                 --------------------------------
                 Choose an option:
@@ -27,6 +44,7 @@ public class ProductView implements Add, Delete, Read, Update {
                 2 - add product
                 3 - delete product
                 4 - product replacement
+                5 - get HashMap
                                 
                 0 - close the application
                 --------------------------------
@@ -35,14 +53,29 @@ public class ProductView implements Add, Delete, Read, Update {
         return OptionValidator.validatorOptionsInputs(scanner);
     }
 
-    public void options(int choice) {
+    public void optionsMap(int choice) {
         switch (choice) {
-            case 1 -> readProduct();
-            case 2 -> addProduct(getProduct());
-            case 3 -> deleteProduct();
-            case 4 -> updateProduct();
+            case 1 -> readMap();
+            case 2 -> addMap();
+            case 3 -> options(getOption());
             case 0 -> System.exit(0);
         }
+    }
+
+    public int getOptionMap() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("""
+                --------------------------------
+                Choose an option:
+                1 - get map info
+                2 - add product price
+                3 - main menu
+                                
+                0 - close the application
+                --------------------------------
+                Enter:\040""");
+
+        return OptionMapValidator.validatorOptionsMapInputs(scanner);
     }
 
     public ProductModel getProduct() {
@@ -100,16 +133,43 @@ public class ProductView implements Add, Delete, Read, Update {
             options(getOption());
         } else {
             System.out.println("Enter number (1 - " + size + "): ");
-
             index = scanner.nextInt();
-
             index--;
         }
         return index;
     }
 
-    public void getChoice() {
+    @Override
+    public void addMap() {
+        scanner = new Scanner(System.in);
+
+        System.out.println(list);
+
+        System.out.println("Enter price(for element " + (getIndex() + 1) + "): ");
+        price = scanner.nextDouble();
+
+        product = new ProductPriceModel(list.get(index), price);
+        map.put(price, product);
+
+        System.out.println("---info add---");
+
+        optionsMap(getOptionMap());
+    }
+
+    @Override
+    public void readMap() {
+        System.out.println("---Map info---");
+        if (map.isEmpty())
+            System.out.println("list is empty");
+        else
+            System.out.println(map + "\nSize: " + map.size());
+
+        optionsMap(getOptionMap());
+    }
+
+    public void start() {
         list = new ArrayList<>();
+        map = new HashMap<>();
         options(getOption());
     }
 }

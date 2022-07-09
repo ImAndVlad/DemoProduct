@@ -6,6 +6,6 @@ public class ProductModel {
 
     @Override
     public String toString() {
-        return "\nName:\t"+ name;
+        return "\tName:\t"+ name;
     }
 }
