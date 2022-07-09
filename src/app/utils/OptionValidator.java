@@ -11,7 +11,7 @@ public class OptionValidator {
             System.out.print("Enter number 0-4\n");
         }
         int choice = scanner.nextInt();
-        while (choice < 0 || choice > 5) {
+        while (choice < 0 || choice > 6) {
             System.out.println("Incorrect value\n" +
                     "Enter number 0-4\n");
             while (!scanner.hasNextInt()) {

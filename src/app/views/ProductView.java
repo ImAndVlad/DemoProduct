@@ -19,22 +19,25 @@ public class ProductView implements Add, Delete, Read, Update {
     ProductModel model;
     ProductPriceModel product;
     ArrayList<ProductModel> list;
-    public HashMap<Double, ProductPriceModel> map;
+    HashMap<Double, ProductPriceModel> map;
     int size;
     int index;
     double price;
 
+    // main menu
     public void options(int choice) {
         switch (choice) {
             case 1 -> readProduct();
             case 2 -> addProduct(getProduct());
             case 3 -> deleteProduct();
             case 4 -> updateProduct();
-            case 5 -> optionsMap(getOptionMap());
+            case 5 -> optionsHash(getOptionHash());
+            case 6 -> optionsMap(getOptionMap());
             case 0 -> System.exit(0);
         }
     }
 
+    // main menu
     public int getOption() {
         Scanner scanner = new Scanner(System.in);
         System.out.print("""
@@ -44,7 +47,8 @@ public class ProductView implements Add, Delete, Read, Update {
                 2 - add product
                 3 - delete product
                 4 - product replacement
-                5 - get HashMap
+                5 - (Hash menu)
+                6 - (HashMap menu)
                                 
                 0 - close the application
                 --------------------------------
@@ -53,6 +57,7 @@ public class ProductView implements Add, Delete, Read, Update {
         return OptionValidator.validatorOptionsInputs(scanner);
     }
 
+    // HashMap menu
     public void optionsMap(int choice) {
         switch (choice) {
             case 1 -> readMap();
@@ -62,6 +67,7 @@ public class ProductView implements Add, Delete, Read, Update {
         }
     }
 
+    // HashMap menu
     public int getOptionMap() {
         Scanner scanner = new Scanner(System.in);
         System.out.print("""
@@ -78,6 +84,34 @@ public class ProductView implements Add, Delete, Read, Update {
         return OptionMapValidator.validatorOptionsMapInputs(scanner);
     }
 
+    // Hash menu
+    public void optionsHash(int choice) {
+        switch (choice) {
+            case 1 -> showInfo();
+            case 2 -> equals();
+            case 3 -> options(getOption());
+            case 0 -> System.exit(0);
+        }
+    }
+
+    // Hash menu
+    public int getOptionHash() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("""
+                --------------------------------
+                Choose an option:
+                1 - get info
+                2 - equals
+                3 - main menu
+                                
+                0 - close the application
+                --------------------------------
+                Enter:\040""");
+
+        return OptionMapValidator.validatorOptionsMapInputs(scanner);
+    }
+
+    // get element in ArrayList
     public ProductModel getProduct() {
         model = new ProductModel();
         scanner = new Scanner(System.in);
@@ -88,6 +122,7 @@ public class ProductView implements Add, Delete, Read, Update {
         return model;
     }
 
+    // add in ArrayList
     @Override
     public void addProduct(ProductModel product) {
         list.add(product);
@@ -97,6 +132,7 @@ public class ProductView implements Add, Delete, Read, Update {
         options(getOption());
     }
 
+    // read ArrayList
     @Override
     public void readProduct() {
         if (list.isEmpty())
@@ -107,6 +143,7 @@ public class ProductView implements Add, Delete, Read, Update {
         options(getOption());
     }
 
+    // delete element ArrayList
     @Override
     public void deleteProduct() {
         list.remove(getIndex());
@@ -117,6 +154,7 @@ public class ProductView implements Add, Delete, Read, Update {
         options(getOption());
     }
 
+    // update element ArrayList
     @Override
     public void updateProduct() {
         list.set(getIndex(), getProduct());
@@ -125,6 +163,7 @@ public class ProductView implements Add, Delete, Read, Update {
         options(getOption());
     }
 
+    // get index element
     private int getIndex() {
         scanner = new Scanner(System.in);
 
@@ -139,6 +178,7 @@ public class ProductView implements Add, Delete, Read, Update {
         return index;
     }
 
+    // add price HashMap
     @Override
     public void addMap() {
         scanner = new Scanner(System.in);
@@ -156,6 +196,7 @@ public class ProductView implements Add, Delete, Read, Update {
         optionsMap(getOptionMap());
     }
 
+    // show HashMap element
     @Override
     public void readMap() {
         System.out.println("---Map info---");
@@ -167,9 +208,33 @@ public class ProductView implements Add, Delete, Read, Update {
         optionsMap(getOptionMap());
     }
 
+    // get element HashCode
+    private void showInfo() {
+        System.out.println(list);
+        System.out.println("HashCode: " + list.get(getIndex()).hashCode());
+
+        optionsHash(getOptionHash());
+    }
+
+    // equals elements ArrayList
+    private void equals() {
+        System.out.println(list);
+        System.out.println("---Enter 2 elements---");
+        ProductModel element1 = list.get(getIndex());
+        ProductModel element2 = list.get(getIndex());
+        System.out.println(element1.equals(element2));
+
+        optionsHash(getOptionHash());
+    }
+
+    public void showTitle() {
+        System.out.println("---PRODUCT STORE---");
+    }
+
     public void start() {
         list = new ArrayList<>();
         map = new HashMap<>();
+        showTitle();
         options(getOption());
     }
 }
